@@ -1,0 +1,40 @@
+#wrapper{
+  /* background-color: yellow; */
+  margin: auto;
+  /* 폰트 설정 */
+  font-family: 'Segoe UI', sans-serif;
+}
+#header{
+  height: 50px;
+  background-color: #4e73df;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+}
+#header h2{
+  display: inline-block;
+  margin: 0px;
+}
+#header a{
+  text-decoration: none;
+  /* margin값으로 두 개를 명시하면, 첫 번재 요소는 top bottom, 두 번째 요소는 left right */
+  margin: 0px 50px;
+  color: white;
+  line-height: 50px;
+}
+#days{
+  /* background-color: chartreuse; */
+  height: 40px;
+  /* text-align: center; */
+  line-height: 40px;
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid #dad7d7;
+  text-align: center;
+}
+#section{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
+}
