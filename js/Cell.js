@@ -18,6 +18,7 @@ class Cell{
       this.div.style.borderRadius = 7+"px";
       this.div.style.display = "inline-block";
       this.div.innerHTML = this.num;
+
       if (hover == true){
         this.div.addEventListener("mouseover", () => {
           this.div.style.backgroundColor = "#e3e7f7";
@@ -29,5 +30,26 @@ class Cell{
 
       // 컨테이너에 자식 요소 부착
       this.container.appendChild(this.div);
+  }
+
+  setText(text){
+    this.div.innerText = text;
+  }
+
+  /**
+   * 셀에 날짜를 추가하거나 제거
+   * @param {number} year 연도
+   * @param {number} month 월 (0부터 시작)
+   * @param {number|null} date 일 (1~31). 없으면 속성 제거
+   */
+  setDateAttr(year, month, date){
+    if (date){
+      // yy-mm-dd 형식
+      let mm = (month+1).toString().padStart(2, '0');
+      let dd = date.toString().padStart(2, '0');
+      this.div.dataset.date = `${year}+${mm}+${dd}`;
+    } else{
+      this.div.removeAttribute("data-date");
+    }
   }
 }
