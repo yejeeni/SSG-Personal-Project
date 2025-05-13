@@ -76,10 +76,24 @@ class Review{
     }
   }
 
+  getReviewCountByDay(yy, mm, dd) {
+    let dailyReview = [];
+    for (let i=0; i<this.reviews.length; i++){
+      let review = this.reviews[i];
+
+      console.log(yy.toString()+"-"+mm.toString().padStart(2, '0')+"-"+dd.toString());
+      if (review.date == yy.toString()+"-"+mm.toString().padStart(2, '0')+"-"+dd.toString()){
+          dailyReview.push(review);
+      }
+
+      console.log("데일리리뷰", dailyReview);
+    }
+  }
+
   // 테스트 데이터 입력
   addTestData() {
   this.addReview("2025-05-10", "도서", 5, "정말 재밌어요!", "책이 너무 흥미로웠어요!");
-  this.addReview("2025-05-11", "영화", 4, "볼만했어요", "스토리도 괜찮고 배우 연기도 좋았어요!");
+  this.addReview("2025-05-13", "영화", 4, "볼만했어요", "스토리도 괜찮고 배우 연기도 좋았어요!");
   this.printReviews();
 }
 }
@@ -87,3 +101,4 @@ class Review{
 let reviewApp = new Review();
 reviewApp.bindForm(); // 폼 바인딩
 reviewApp.addTestData(); // 테스트용 리뷰 추가
+reviewApp.getReviewCountByDay(2025, 5, 13);
