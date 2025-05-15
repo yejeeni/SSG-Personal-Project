@@ -1,6 +1,6 @@
 // 달력을 이루는 하나의 셀을 정의
 class Cell{
-  constructor(container, width, height, bg, border, bdColor, num, hover){
+  constructor(container, width, height, bg, border, bdColor, num, img, hover){
       this.container = container;
       this.div = document.createElement("div");
       this.width = width;
@@ -9,6 +9,7 @@ class Cell{
       this.border = border; // 경계선 두께
       this.bdColor = bdColor; // 경계선 색상
       this.num = num; // 셀에 출력될 날짜
+      this.img = img;
 
       // style
       this.div.style.width = this.width+"px";
@@ -18,6 +19,8 @@ class Cell{
       this.div.style.borderRadius = 7+"px";
       this.div.style.display = "inline-block";
       this.div.innerHTML = this.num;
+      // this.img.style.width = 80+"px";
+      // this.img.style.height = 80+"px";
 
       if (hover == true){
         this.div.addEventListener("mouseover", () => {

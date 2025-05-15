@@ -4,14 +4,15 @@ class Review {
     this.reviews = []; // 리뷰 목록을 저장할 배열
   }
 
-  addReview(date, category, rating, title, text) {
+  addReview(date, category, rating, title, text, img) {
     let inputReview = {
       id: this.nextId++, // 현재 id를 사용하고 1 증가시킴
       date,
       category,
       rating,
       title,
-      text
+      text,
+      img
     };
 
     // 리뷰를 배열에 추가
@@ -32,8 +33,10 @@ class Review {
       let rating = parseInt(document.querySelector('input[name="rating"]:checked').value);
       let title = document.getElementById("title").value;
       let text = document.getElementById("text").value;
+      let img = document.getElementById("preview").value;
+      console.log(img);
 
-      // ✅ 같은 인스턴스의 addReview를 사용
+      // 같은 인스턴스의 addReview를 사용
       this.addReview(date, category, rating, title, text);
       this.printReviews();
 
@@ -45,10 +48,10 @@ class Review {
     return yy.toString() + "-" + mm.toString().padStart(2, '0') + "-" + dd.toString().padStart(2, '0');
   }
 
-  // 단일 리뷰를 출력하는 함수
-  printReviewOne(id){
-//////////////////////////////////////////////
-  }
+  // // 단일 리뷰를 출력하는 함수
+  // printReviewOne(id) {
+  //   //////////////////////////////////////////////
+  // }
 
   /**
    * 리뷰 목록을 출력하는 함수
@@ -79,16 +82,18 @@ class Review {
       // 각 리뷰마다 div 생성
       let reviewDiv = document.createElement("div");
       reviewDiv.classList.add("review-item");
-      reviewDiv.style.backgroundColor = "skyblue";
-      reviewDiv.style.border = "2px solid black";
+      reviewDiv.style.backgroundColor = "white";
+      // reviewDiv.style.border = "2px solid black";
+      reviewDiv.style.borderBottom = "2px solid lightgray";
+      reviewDiv.style.padding = 10 + "px";
 
       reviewDiv.innerHTML = `
-      <div>날짜: ${review.date}</div>
-      <div>카테고리: ${review.category}</div>
-      <div>별점: ${review.rating}</div>
-      <div>제목: ${review.title}</div>
-      <div>내용: ${review.text}</div>
-    `;
+        <div class="review-date" > ${review.date}</ >
+        <div class="review-category">${review.category}</div>
+        <div class="review-rating">${review.rating}점</div>
+        <div class="review-title">${review.title}</div>
+        <div class="review-text">${review.text}</div>
+      `;
 
       container.appendChild(reviewDiv);
     }

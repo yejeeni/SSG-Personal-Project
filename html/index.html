@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<style>
+    /* 전체 wrapper */
+    /* 전체 레이아웃 */
+    #wrapper {
+        width: 1600px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    #navigator {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background-color: whitesmoke;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+        justify-content: flex-end;
+    }
+
+    #navigator ul {
+        list-style: none;
+        display: flex;
+    }
+    
+    #navigator li.menu {
+        float: right;
+        cursor: pointer;
+        margin-right: 50px;
+        padding: 7px;
+    }
+
+    #navigator li.menu:hover {
+        background-color:#ddd;
+        border-radius: 10px;
+    }
+
+    .img{
+        width: 30px;
+    }
+
+    /* 상단: 달력 + 입력폼 */
+    #top-section {
+        display: flex;
+        gap: 20px;
+    }
+
+    #header {
+        background-color: #ff6f00;
+    }
+
+    /* 달력 */
+    #calendar {
+        width: 800px;
+        height: 930px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* 달력 내부 섹션 */
+    #section {
+        justify-content: center;
+    }
+
+    .count {
+        font-weight: bold;
+        color: white;
+        background-color: #ff6f00;
+        border-radius: 50%;
+        display: inline-block;
+        width: 25px;
+        height: 17px;
+        text-align: center;
+        line-height: 17px;
+        font-size: 13px;
+    }
+
+    /* 오른쪽 입력 폼 */
+    #right-aside {
+        width: 800px;
+        height: 930px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    #preview{
+        width: 150px;
+        height: 150px;
+    }
+
+    /* 입력 폼 구조 */
+    #form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* 공통 입력 스타일 */
+    #form input[type="date"],
+    #form select,
+    #form input[type="text"],
+    #form textarea {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    /* 텍스트 영역 (후기 입력) */
+    #text {
+        width: 100%;
+        min-height: 335px;
+        resize: vertical;
+    }
+
+    /* 별점 */
+    .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .star-rating input[type="radio"] {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 30px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .star-rating input[type="radio"]:checked~label {
+        color: #ccc;
+    }
+
+    .star-rating input[type="radio"]:checked+label,
+    .star-rating input[type="radio"]:checked~label {
+        color: #ff6f00;
+    }
+
+    /* 제출 버튼 */
+    #sub-btn {
+        background-color: orange;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #sub-btn:hover {
+        background-color: rgb(255, 81, 0);
+    }
+
+    /* 리뷰 목록 */
+    #my-review {
+        margin-top: 30px;
+        background-color: #f0f0f0;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 12px;
+    }
+
+    #review-list {
+        background-color: #fff;
+        border: 2px solid #ccc;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .review-item {
+        padding: 16px 0;
+        border-bottom: 2px solid #ddd;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 15px;
+        color: #333;
+    }
+
+    .review-item:last-child {
+        border-bottom: none;
+        /* 마지막엔 밑줄 제거 */
+    }
+
+    .review-date {
+        font-weight: bold;
+        color: #999;
+        font-size: 14px;
+    }
+
+    .review-category {
+        font-weight: bold;
+        color: #ff6f00;
+    }
+
+    .review-rating {
+        color: #ff9800;
+        font-weight: bold;
+    }
+
+    .review-title {
+        font-size: 17px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .review-text {
+        line-height: 1.4;
+        white-space: pre-wrap;
+        color: black;
+    }
+</style>
+
+
+<body>
+    <div id="wrapper">
+        <div id="navigator">
+            <p>문화일기</p>
+            <ul>
+                <li class="menu"><img src="../image/home.png" alt="" class="img"></li>
+                <li class="menu">
+                    <a href="./list.html">
+                        <img src="../image/list.png" alt="" class="img">
+                    </a>
+                </li>
+                <li class="menu"><img src="../image/stats.png" alt="" class="img"></li>
+            </ul>
+        </div>
+        <div id="top-section">
+
+            <div id="calendar">
+                <div id="header">
+                    <a href="#">이전</a>
+                    <h2></h2>
+                    <a href="#">다음</a>
+                </div>
+                <div id="days"></div>
+                <div id="section"></div>
+            </div>
+
+            <div id="right-aside">
+                <div id="input">
+                    <form id="form">
+                        <input type="date" id="date" required>
+                        <select id="category" required>
+                            <option value="">카테고리 선택</option>
+                            <option value="영화">영화</option>
+                            <option value="음악">스포츠</option>
+                            <option value="쇼핑">맛집</option>
+                            <option value="기타">기타</option>
+                        </select>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label for="star5">★</label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label for="star4">★</label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label for="star3">★</label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label for="star2">★</label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label for="star1">★</label>
+                        </div>
+                        <input type="file" id="profile">
+                        <img id="preview">
+                        <input type="text" id="title" placeholder="제목" required>
+                        <textarea type="text" id="text" placeholder="어떻게 생각하시나요?" required></textarea>
+                        <button id="sub-btn" type="submit">추가</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="my-review">
+            <h1>목록</h1>
+            <div id="review-list"></div>
+        </div>
+    </div>
+</body>
+<script src="../js/Cell.js"></script>
+<script src="../js/lib/common.js"></script>
+<script src="../js/Review.js"></script>
+<script src="../js/Calendar.js"></script>
+<script src="../js/Home.js"></script>
+
+</html>

@@ -1,5 +1,5 @@
 let cellWidth = 100;
-let cellHeight = 100;
+let cellHeight = 130;
 let border = 1;
 
 let currentYear;
@@ -25,16 +25,16 @@ function printTitle(yy, mm) {
 function createCell() {
     let wrapper = document.getElementById("calendar");
     // wrapper.style.backgroundColor = "red";
-    wrapper.style.width = cellWidth * 7 + border * 14 + 5 + "px";
-    wrapper.style.height = cellHeight * 6 + border * 12 + 50 + 40 + 10 + "px";
+    // wrapper.style.width = cellWidth * 7 + border * 14 + 5 + "px";
+    // wrapper.style.height = cellHeight * 6 + border * 12 + 50 + 40 + 10 + "px";
 
     for (let i = 0; i < 7; i++) {
-        new Cell(document.getElementById("days"), cellWidth, 40, "white", 1, "gray", convertDay(i, "kor"), false);
+        new Cell(document.getElementById("days"), cellWidth+3, 40, "orange", 1, "none", convertDay(i, "kor"), 0, false);
     }
 
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 7; j++) {
-            let cell = new Cell(document.getElementById("section"), 100, 100, "white", 1, "navy", "", true);
+            let cell = new Cell(document.getElementById("section"), cellWidth, cellHeight, "white", 1, "lightgray", "", 0, true);
             cellArray.push(cell);
         }
     }
@@ -52,7 +52,7 @@ function printDailyReviewInCalendar(n, cell) {
     if (dailyReview[dateKey]) { // dateKey를 키로 갖는 리뷰가 존재하는 경우
         // console.log("데일리리뷰", currentYear, currentMonth + 1, n, dailyReview, dailyReview[dateKey].length);
         // 해당 일에 작성한 리뷰 수 출력
-        cell.div.innerHTML += `<span class="count">${dailyReview[dateKey].length}개</span>`;
+        cell.div.innerHTML += `<span class="count">${dailyReview[dateKey].length}</span>`;
         cell.div.addEventListener("click", function(){
             reviewApp.printReviews(currentYear, currentMonth+1, n);
         });
@@ -73,6 +73,7 @@ function printDate() {
 
                 printDailyReviewInCalendar(n, cell);
             } else {
+                cell.div.style.border
                 cell.setDateAttr();
             }
             idx++;
