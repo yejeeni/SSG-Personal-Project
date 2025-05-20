@@ -20,9 +20,15 @@ function previewImg(e) {
 }
 
 
-addEventListener("load", function () {
-  getCurrentDate();
+let reviewApp = new Review();
 
+addEventListener("load", function () {
+  // 1) 폼 바인딩 + 테스트 데이터 채우기
+  reviewApp.bindForm();
+  reviewApp.addTestData();
+
+  // 2) 달력 초기화
+  getCurrentDate();
   createCell();
   printTitle(currentYear, currentMonth);
   getStartDay(currentYear, currentMonth);
@@ -46,12 +52,25 @@ addEventListener("load", function () {
     printDate();
   });
 
+  /* 이미지를 클릭하면, 파일 탐색기를 강제로 클릭시키기 */
+  document.querySelector("#imgfile-div img").addEventListener("click", () => {
+    // fileChooser에 클릭 이벤트 호출 (프로그래밍적 클릭)
+    document.getElementById("fileChooser").click();
+  });
+
   // 대표이미지 파일을 선택했을 때
-  document.getElementById("profile").addEventListener("change", function (e) {
+  document.getElementById("fileChooser").addEventListener("change", function (e) {
     previewImg(e);
   });
 
-  review.bindForm();
-  review.addTestData();
-  
+  // 모든 name="rating"인 라디오 버튼 가져오기
+  let ratingRadios = document.querySelectorAll('input[name="rating"]');
+
+  ratingRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
+      console.log("선택된 점수:", this.value);
+    });
+  });
+
+
 });

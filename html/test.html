@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>라디오 버튼 테스트</title>
+</head>
+<body>
+
+  <h2>점수를 선택하세요</h2>
+
+  <form id="rating-form">
+    <label>
+      <input type="radio" name="rating" value="1"> 1
+    </label>
+    <label>
+      <input type="radio" name="rating" value="2"> 2
+    </label>
+    <label>
+      <input type="radio" name="rating" value="3"> 3
+    </label>
+    <label>
+      <input type="radio" name="rating" value="4"> 4
+    </label>
+    <label>
+      <input type="radio" name="rating" value="5"> 5
+    </label>
+    <br><br>
+    <button type="submit">제출</button>
+  </form>
+
+  <script>
+    document.getElementById("rating-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const checkedRadio = document.querySelector('input[name="rating"]:checked');
+      
+      if (checkedRadio) {
+        const selectedValue = checkedRadio.value;
+        console.log("선택된 값:", selectedValue);
+        alert("선택된 점수: " + selectedValue);
+      } else {
+        alert("점수를 선택해주세요.");
+      }
+    });
+  </script>
+
+</body>
+</html>

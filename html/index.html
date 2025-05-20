@@ -37,7 +37,7 @@
         list-style: none;
         display: flex;
     }
-    
+
     #navigator li.menu {
         float: right;
         cursor: pointer;
@@ -46,11 +46,11 @@
     }
 
     #navigator li.menu:hover {
-        background-color:#ddd;
+        background-color: #ddd;
         border-radius: 10px;
     }
 
-    .img{
+    .img {
         width: 30px;
     }
 
@@ -106,7 +106,7 @@
         box-sizing: border-box;
     }
 
-    #preview{
+    #preview {
         width: 150px;
         height: 150px;
     }
@@ -139,32 +139,7 @@
     }
 
     /* 별점 */
-    .star-rating {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-start;
-        gap: 5px;
-    }
-
-    .star-rating input[type="radio"] {
-        display: none;
-    }
-
-    .star-rating label {
-        font-size: 30px;
-        color: #ccc;
-        cursor: pointer;
-        transition: color 0.2s;
-    }
-
-    .star-rating input[type="radio"]:checked~label {
-        color: #ccc;
-    }
-
-    .star-rating input[type="radio"]:checked+label,
-    .star-rating input[type="radio"]:checked~label {
-        color: #ff6f00;
-    }
+   
 
     /* 제출 버튼 */
     #sub-btn {
@@ -276,24 +251,23 @@
                         <select id="category" required>
                             <option value="">카테고리 선택</option>
                             <option value="영화">영화</option>
-                            <option value="음악">스포츠</option>
-                            <option value="쇼핑">맛집</option>
+                            <option value="스포츠">스포츠</option>
+                            <option value="맛집">맛집</option>
                             <option value="기타">기타</option>
                         </select>
-                        <div class="star-rating">
-                            <input type="radio" id="star5" name="rating" value="5" />
-                            <label for="star5">★</label>
-                            <input type="radio" id="star4" name="rating" value="4" />
-                            <label for="star4">★</label>
-                            <input type="radio" id="star3" name="rating" value="3" />
-                            <label for="star3">★</label>
-                            <input type="radio" id="star2" name="rating" value="2" />
-                            <label for="star2">★</label>
-                            <input type="radio" id="star1" name="rating" value="1" />
-                            <label for="star1">★</label>
+                        <div id="rating-box">
+                            <label><input type="radio" name="rating" value="1"> 1점</label>
+                            <label><input type="radio" name="rating" value="2"> 2점</label>
+                            <label><input type="radio" name="rating" value="3"> 3점</label>
+                            <label><input type="radio" name="rating" value="4"> 4점</label>
+                            <label><input type="radio" name="rating" value="5"> 5점</label>
                         </div>
-                        <input type="file" id="profile">
-                        <img id="preview">
+
+                        <div id="imgfile-div">
+                            <input type="file" style="display: none;" id="fileChooser">
+                            <img src="../image/file_download.png" alt="" style="width: 30px;">
+                            <img id="preview">
+                        </div>
                         <input type="text" id="title" placeholder="제목" required>
                         <textarea type="text" id="text" placeholder="어떻게 생각하시나요?" required></textarea>
                         <button id="sub-btn" type="submit">추가</button>

@@ -4,7 +4,7 @@ class Review {
     this.reviews = []; // 리뷰 목록을 저장할 배열
   }
 
-  addReview(date, category, rating, title, text, img) {
+addReview(date, category, rating, title, text, img) {
     let inputReview = {
       id: this.nextId++, // 현재 id를 사용하고 1 증가시킴
       date,
@@ -34,11 +34,12 @@ class Review {
       let title = document.getElementById("title").value;
       let text = document.getElementById("text").value;
       let img = document.getElementById("preview").value;
-      console.log(img);
 
       // 같은 인스턴스의 addReview를 사용
-      this.addReview(date, category, rating, title, text);
+      this.addReview(date, category, rating, title, text, img);
       this.printReviews();
+      clearDate();
+      printDate();
 
       form.reset();
     });
@@ -77,7 +78,7 @@ class Review {
 
     // 리뷰 배열을 출력
     for (let i = 0; i < reviewArray.length; i++) {
-      const review = reviewArray[i];
+      let review = reviewArray[i];
 
       // 각 리뷰마다 div 생성
       let reviewDiv = document.createElement("div");
@@ -139,8 +140,7 @@ class Review {
   }
 }
 
-
-let reviewApp = new Review();
-reviewApp.bindForm(); // 폼 바인딩
-reviewApp.addTestData(); // 테스트용 리뷰 추가
-reviewApp.getReviewCountByDay();
+// let reviewApp = new Review();
+//  reviewApp.bindForm(); // 폼 바인딩
+//  reviewApp.addTestData(); // 테스트용 리뷰 추가
+// reviewApp.getReviewCountByDay();
