@@ -1,0 +1,421 @@
+/* 기본 설정 */
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+input[type="date"], textarea {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+#wrapper, #app {
+  width: 1600px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 내비게이터 */
+#navigator {
+  height: 60px;
+  background-color: whitesmoke;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* 메인 구조 */
+#mainContent {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* 달력 영역 */
+#calendarSection {
+  width: 560px;
+  height: 750px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#calendarHeader {
+  height: 50px;
+  background-color: #ff6f00;
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+}
+
+#calendarHeader h2 {
+  display: inline-block;
+  margin: 0;
+}
+
+#calendarPrevBtn,
+#calendarNextBtn {
+  text-decoration: none;
+  margin: 0 50px;
+  color: white;
+  line-height: 50px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#calendarDays {
+  height: 40px;
+  line-height: 40px;
+  color: #000;
+  border-bottom: 1px solid #dad7d7;
+  text-align: center;
+}
+
+#calendarGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fff;
+}
+
+/* 날짜 셀 안의 리뷰 수 뱃지 */
+.count {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff6f00;
+  border-radius: 50%;
+  width: 25px;
+  height: 17px;
+  text-align: center;
+  line-height: 17px;
+  font-size: 13px;
+}
+
+/* 사이드바 (차트 + 입력폼) */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 990px;
+  gap: 20px;
+}
+
+#chartWrapper {
+  display: flex;
+  padding-left: 30px;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+#reviewChart {
+  width: 300px !important;
+  height: 150px !important;
+}
+
+#reviewStats {
+  font-size: 1.2rem;
+  padding-left: 20px;
+}
+
+#reviewFormWrapper {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding:20px;
+  box-sizing: border-box;
+}
+
+#reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#categoryWrapper {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+}
+
+#categorySelect,
+#filterCategorySelect,
+#reviewDate,
+#reviewForm input[type="text"],
+#reviewForm textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+#categorySelect {
+  width: 150px;
+}
+
+#filterCategorySelect{
+  width: 150px;
+}
+
+#openCategoryDialogBtn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #dad7d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+#openCategoryDialogBtn:hover {
+  background-color: #999;
+}
+
+#ratingRow label {
+  margin-right: 10px;
+}
+
+#imagePreview {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+}
+
+#imageUploadBtn {
+  width: 50px;
+  cursor: pointer;
+}
+
+#reviewText {
+  width: 100%;
+  min-height: 205px;
+  resize: vertical;
+}
+
+#submitBtn {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submitBtn:hover {
+  background-color: rgb(255, 81, 0);
+}
+
+/* 리뷰 목록 */
+#reviewSection {
+  margin-top: 30px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#reviewList {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.review-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.review-date,
+.review-category {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.review-category {
+  font-weight: bold;
+  color: #ff6f00;
+}
+
+.review-rating {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.review-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.review-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* 카테고리 다이얼로그 */
+#categoryDialogBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#categoryDialog {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+#gemini-hello {
+  top: 50%;
+  left: 50%;
+  padding: 40px;
+  font-family: 'Nanum Gothic', sans-serif;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+  width: 95%;
+  color: #333;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-left: 6px solid #FF7043;  /* 포인트 컬러 */
+  margin: 50px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-align: center;           /* 텍스트 가운데 정렬 */
+  margin: auto;
+}
+
+
+#newCategoryInput{
+  margin-bottom: 10px;
+}
+
+#categoryDialog input[type="text"] {
+  width: 92.5%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#categoryList {
+  height: 270px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  padding: 8px;
+  border-radius: 4px;
+  background: #fafafa;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.dialogButtons {
+  text-align: right;
+  margin-top: 12px;
+}
+
+#categoryDialog button {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+#categoryDialog button:hover {
+  background-color: #ff6f00;
+}
+
+#closeCategoryDialogBtn {
+  background: #aaa !important;
+}
+
+#closeCategoryDialogBtn:hover {
+  background: #666 !important;
+}
+
+.show-dialog #categoryDialogBackdrop {
+  display: flex;
+}
+
+.dialogFeedback {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff6f00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  z-index: 1100;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.dialogFeedback.show {
+  opacity: 1;
+  visibility: visible;
+}

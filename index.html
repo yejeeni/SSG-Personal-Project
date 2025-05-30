@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문화일기</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <header id="navigator">
+      <h1>문화일기</h1>
+    </header>
+    <main id="mainContent">
+      <section id="calendarSection">
+        <div id="calendarHeader">
+          <button id="calendarPrevBtn" type="button">◀</button>
+          <h2 id="calendarTitle"></h2>
+          <button id="calendarNextBtn" type="button">▶</button>
+        </div>
+        <div id="calendarDays"></div>
+        <div id="calendarGrid"></div>
+      </section>
+      <aside id="sidebar">
+        <div id="chartWrapper">
+          <canvas id="reviewChart"></canvas>
+          <div id="reviewStats"></div>
+        </div>
+        <div id="reviewFormWrapper">
+          <form id="reviewForm">
+            <div class="formRow">
+              <input type="date" id="reviewDate" required />
+              <div id="categoryWrapper">
+                <select id="categorySelect" required>
+                  <option value="">카테고리</option>
+                </select>
+                <button id="openCategoryDialogBtn" type="button">카테고리 추가</button>
+              </div>
+            </div>
+            <div class="formRow" id="ratingRow">
+              <label><input type="radio" name="rating" value="1" required /> 1점</label>
+              <label><input type="radio" name="rating" value="2" /> 2점</label>
+              <label><input type="radio" name="rating" value="3" /> 3점</label>
+              <label><input type="radio" name="rating" value="4" /> 4점</label>
+              <label><input type="radio" name="rating" value="5" /> 5점</label>
+            </div>
+            <div class="formRow" id="imageUploadRow">
+              <input type="file" id="imageInput" style="display: none" />
+              <img id="imageUploadBtn" src="../image/file_download.png" alt="이미지 업로드" />
+              <img id="imagePreview"/>
+            </div>
+            <input type="text" id="reviewTitle" placeholder="제목" required />
+            <textarea id="reviewText" placeholder="어떻게 생각하시나요?" required></textarea>
+            <button type="submit" id="submitBtn">추가</button>
+          </form>
+          <div id="categoryDialogBackdrop">
+            <div id="categoryDialog">
+              <div id="categoryFeedback" class="dialogFeedback"></div>
+              <input type="text" id="newCategoryInput" placeholder="추가할 카테고리명" />
+              <div>현재 카테고리</div>
+              <div id="categoryList"></div>
+              <div class="dialogButtons">
+                <button id="registerCategoryBtn" type="button">등록</button>
+                <button id="closeCategoryDialogBtn" type="button">닫기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+        <br>
+            <br>
+    <h2 id="gemini-hello"></h2>
+    <br>
+    <section id="reviewSection">
+      <h2>리뷰 목록</h2>
+      <div id="filterCategory">
+        <select id="filterCategorySelect">
+          <option value="">카테고리</option>
+        </select>
+      </div>
+      <div id="reviewList"></div>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="../js/Home.js">
+    </script>
+  <script src="../js/Cell.js"></script>
+  <script src="../js/ReviewItem.js"></script>
+  <script src="../js/Review.js"></script>
+  <script src="../js/Calendar.js"></script>
+  <script src="../js/Chart.js"></script>
+  <script src="../js/Category.js"></script>
+  
+  <script src="../js/Home.js"></script>
+</body>
+</html>

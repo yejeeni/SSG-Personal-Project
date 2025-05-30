@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  },
+  "name": "js-project",
+  "version": "1.0.0",
+  "description": "리뷰를 날짜별로 등록하고, 달력에서 시각적으로 확인할 수 있는 웹 애플리케이션입니다.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yejeeni/SSG-Personal-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yejeeni/SSG-Personal-Project/issues"
+  },
+  "homepage": "https://github.com/yejeeni/SSG-Personal-Project#readme"
+}

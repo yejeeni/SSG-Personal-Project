@@ -1,0 +1,15 @@
+# Node modules (필수)
+node_modules/
+
+# 로그 파일
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 운영체제 관련 파일
+.DS_Store
+Thumbs.db
+
+# 환경 설정 파일 (있을 경우)
+.env
+.env.local
