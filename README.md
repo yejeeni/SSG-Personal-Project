@@ -1,33 +1,66 @@
 # 문화일기 다이어리
 
-리뷰를 날짜별로 등록하고, 달력에서 시각적으로 확인할 수 있는 웹 애플리케이션입니다.
+![gemini포함메인](https://github.com/user-attachments/assets/2de75a18-377a-444c-9c37-b20be4df1af6)
+
+일기나 리뷰를 기록하고, 날짜별 리뷰를 시각화할 수 있는 웹 애플리케이션입니다.  
+간단한 UI 상에서 달력에 리뷰를 등록하고, 바 차트로 시각화된 결과를 확인할 수 있습니다. 또한 하루 동안 등록한 리뷰를 AI가 요약 및 피드백합니다.
 
 ## ✨ 주요 기능
 
 - 📅 **캘린더 기능**: 월별 날짜 셀에 리뷰 수와 이미지를 표시
+  
 - 📝 **리뷰 등록**: 날짜, 카테고리, 별점, 텍스트, 이미지 업로드 가능
-- 📊 **카테고리별 통계**: 각 카테고리별 리뷰 수 출력
+
+- 📊 **카테고리별 통계**: 각 카테고리별 리뷰 수를 차트로 출력 
+  ![등록시연](https://github.com/user-attachments/assets/d5a1c7e8-4aa0-495d-ad8b-6a429455d8cc)
+
 - 🔍 **리뷰 목록 보기**: 날짜 또는 전체 리뷰 조회
+  ![달력셀선택시연](https://github.com/user-attachments/assets/1fd0beaf-8643-4c41-b6e1-3de2aef69e84)
+  ![등록리스트시연](https://github.com/user-attachments/assets/9093ed39-cadd-48f1-b201-c06423203467)
+  
 - 🖼️ **이미지 미리보기**: 리뷰 등록 시 이미지 실시간 미리보기 제공
+  
+- 🧾 **생성형 AI 피드백**: Gemini가 데일리리뷰들을 피드백
 
 ## 📂 프로젝트 구조
 ```
-📁 /css
-└─ 📄 sytle.css
-📁 /html
-└─ 📄 index.html
-📁 /js
-├─ 📄 Calendar.js // 달력 관련 Calendar 클래스
-├─ 📄 Category.js // 카테고리 추가 로직 관리
-├─ 📄 Cell.js // 셀 구성 및 hover 관리
-├─ 📄 Chart.js // 바 차트 생성
-├─ 📄 Home.js // window load 로직
-├─ 📄 Review.js // 리뷰 데이터 관리
-└─ 📄 ReviewItem.js // 리뷰 객체 클래스
+📁 JS Project/
+├── 📁 css/
+│ └── style.css
+├── 📁 image/
+├── 📁 js/
+│ ├── Calendar.js # 달력 클래스
+│ ├── Category.js # 카테고리 관리 로직
+│ ├── Cell.js # 달력 셀 hover, 렌더링 로직
+│ ├── Chart.js # 바 차트 생성 기능
+│ ├── Home.js # 초기 로딩, Gemini 처리 로직
+│ ├── Review.js # 리뷰 데이터 관리
+│ └── ReviewItem.js # 리뷰 객체 구조 클래스
+├── 📄 index.html # 메인 HTML 파일
+├── 📄 package.json 
+├── 📄 package-lock.json
+└── 📁 node_modules/
 ```
 
 ## 🛠️ 기술 스택
-- HTML, CSS, JavaScript (Vanilla)
-- 날짜 처리: `Date 객체` 사용
-- 시각화: 기본 DOM 조작 기반 렌더링
-- 차트: Chart.js 라이브러리 사용
+- HTML, CSS, JavaScript
+- Chart.js
+- Gemini API
+
+## 🗓️ 개발 일정 요약
+- 프로젝트 구조 및 환경 세팅 완료
+- 캘린더 및 리뷰 등록 기능 구현
+- 리뷰 시각화 (차트) 기능 추가
+- Gemini를 통한 데일리리뷰 피드백
+
+## 🧠 회고 (Retrospective)
+### 1. 초기 설계 미흡 → 반복되는 구조 수정
+- 초반에 명확한 설계 없이 기능 구현을 시작하면서 전체 구조에 대한 이해가 부족했고, 클래스화 및 모듈 분리에 어려움을 겪었다.
+- 기능이 추가될수록 중복 코드가 늘어나며 계속 수정한 탓에 유지보수성에 영향을 주었다.
+
+### 2. 검증 로직의 부족
+- 카테고리 입력 시 **중복 검사를 하지 못하는 문제**와 같이 기본적인 사용자 입력 검증 로직을 구현하지 못했다는 아쉬움이 있었다.
+
+### 3. 배운 점
+- 코드를 작성하기 전에 전체 흐름과 역할을 먼저 설계하는 것의 중요성을 느꼈다.
+- 향후에는 기능 구현에 앞서 구조를 미리 설계하고, 책임 분리가 명확한 클래스/모듈 기반의 개발을 목표로 할 예정.
